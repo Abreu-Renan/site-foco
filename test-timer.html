@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Timer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <h1>Timer Test</h1>
+
+      <div class="timer-card">
+        <div class="timer-display-section">
+          <div class="timer-circle">
+            <div class="timer-text">
+              <span id="timer-display">25:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="start-pause-btn">
+          <i class="fas fa-play"></i>
+          <span>Iniciar</span>
+        </button>
+        <button class="btn btn-secondary" id="reset-btn">
+          <i class="fas fa-refresh"></i>
+          <span>Resetar</span>
+        </button>
+      </div>
+
+      <div class="timer-presets">
+        <h3>Escolha o tempo de foco:</h3>
+        <div class="preset-buttons">
+          <button class="preset-btn active" data-minutes="5">5 min</button>
+          <button class="preset-btn" data-minutes="10">10 min</button>
+          <button class="preset-btn" data-minutes="15">15 min</button>
+          <button class="preset-btn" data-minutes="25">25 min</button>
+          <button class="preset-btn" data-minutes="30">30 min</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("Testing element selection...");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM loaded");
+
+        const startPauseBtn = document.getElementById("start-pause-btn");
+        const resetBtn = document.getElementById("reset-btn");
+        const presetButtons = document.querySelectorAll(".preset-btn");
+        const timerDisplay = document.getElementById("timer-display");
+
+        console.log("Elements found:", {
+          startPauseBtn: !!startPauseBtn,
+          resetBtn: !!resetBtn,
+          presetButtons: presetButtons.length,
+          timerDisplay: !!timerDisplay,
+        });
+
+        if (startPauseBtn) {
+          startPauseBtn.addEventListener("click", function () {
+            console.log("Start/Pause button clicked!");
+            alert("Start/Pause button works!");
+          });
+        }
+
+        presetButtons.forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            const minutes = e.target.dataset.minutes;
+            console.log("Preset button clicked:", minutes);
+            alert(`Preset ${minutes} minutes selected!`);
+
+            // Remove active class from all buttons
+            presetButtons.forEach((b) => b.classList.remove("active"));
+            // Add active class to clicked button
+            e.target.classList.add("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hora do Foco - Cada minuto conta</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1><i class="fas fa-clock"></i> Hora do Foco</h1>
+        <p class="subtitle">Quando é hora de focar, cada minuto conta</p>
+      </header>
+
+      <main class="main-content">
+        <div class="timer-card">
+          <div class="timer-display">
+            <div class="time-circle">
+              <div class="progress-ring">
+                <svg class="progress-ring-svg" width="200" height="200">
+                  <circle
+                    class="progress-ring-background"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                  <circle
+                    class="progress-ring-circle"
+                    cx="100"
+                    cy="100"
+                    r="80"
+                  ></circle>
+                </svg>
+                <div class="timer-text">
+                  <span id="timer-display">25:00</span>
+                  <span class="timer-mode" id="timer-mode">Foco</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="start-pause-btn">
+              <i class="fas fa-play"></i>
+              <span>Iniciar</span>
+            </button>
+            <button class="btn btn-secondary" id="reset-btn">
+              <i class="fas fa-refresh"></i>
+              <span>Resetar</span>
+            </button>
+          </div>
+
+          <div class="timer-presets">
+            <h3>Escolha o tempo de foco:</h3>
+            <div class="preset-buttons">
+              <button class="preset-btn active" data-minutes="5">5 min</button>
+              <button class="preset-btn" data-minutes="10">10 min</button>
+              <button class="preset-btn" data-minutes="15">15 min</button>
+              <button class="preset-btn" data-minutes="25">25 min</button>
+              <button class="preset-btn" data-minutes="30">30 min</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <h3><i class="fas fa-music"></i> Música para Foco</h3>
+          <p class="music-description">
+            Playlist relaxante para manter sua concentração
+          </p>
+
+          <div class="youtube-container">
+            <iframe
+              id="youtube-player"
+              width="100%"
+              height="250"
+              src="https://www.youtube.com/embed/videoseries?list=PLQXgx4dL_J5y2C7kI-iJJzvoRZuJ9sJ7G&autoplay=0&loop=1&controls=1&enablejsapi=1"
+              title="Playlist de Foco"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+
+          <div class="playlist-note">
+            <p><strong>Sobre a Playlist:</strong></p>
+            <p>
+              Músicas selecionadas especialmente para maximizar seu foco e
+              produtividade durante as sessões de trabalho.
+            </p>
+            <div class="music-tip">
+              <small
+                >💡 Use os controles do player do YouTube para reproduzir,
+                pausar e ajustar o volume</small
+              >
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <p class="footer-text">
+            Desenvolvido com <span class="heart">❤️</span> por
+            <strong>Renan</strong>
+          </p>
+          <p class="footer-subtitle">Para maximizar sua produtividade e foco</p>
+          <div class="social-links">
+            <a
+              href="https://github.com/Abreu-Renan"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/renan-abreu-miranda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+            >
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <p class="footer-copy">
+            &copy; 2025 Hora do Foco. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal de Conclusão -->
+    <div class="modal-overlay" id="completion-modal">
+      <div class="modal">
+        <div class="modal-content">
+          <div class="modal-icon">🎯</div>
+          <h2>Tempo Finalizado!</h2>
+          <p>Parabéns! Você completou sua sessão de foco com sucesso.</p>
+          <p class="modal-subtitle">Deseja continuar focando?</p>
+
+          <div class="modal-buttons">
+            <button class="btn btn-primary" id="continue-focus-btn">
+              <i class="fas fa-play"></i>
+              Continuar Focando
+            </button>
+            <button class="btn btn-secondary" id="take-break-btn">
+              <i class="fas fa-coffee"></i>
+              Fazer uma Pausa
+            </button>
+            <button class="btn btn-outline" id="close-modal-btn">
+              <i class="fas fa-times"></i>
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remover scripts complexos temporariamente -->
+    <!--
+    <script src="js/timer.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/youtube-sync.js"></script>
+    <script src="js/app.js"></script>
+    -->
+
+    <!-- Usar timer simples para debug -->
+    <script src="js/simple-timer.js"></script>
+  </body>
+</html>
