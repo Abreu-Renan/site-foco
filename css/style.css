@@ -94,7 +94,9 @@ body {
 .timer-display {
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  align-items: center;
+  margin-bottom: 60px;
+  width: 100%;
 }
 
 .time-circle {
@@ -102,9 +104,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 1/1;
 }
 
 .progress-ring-svg {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
   transform: rotate(-90deg);
 }
 
@@ -547,11 +556,19 @@ body {
   }
 
   .timer-card {
-    padding: 50px 25px;
+    padding: 40px 10px;
+  }
+
+  .timer-display {
+    margin-bottom: 40px;
+  }
+
+  .time-circle {
+    max-width: 200px;
   }
 
   #timer-display {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .preset-buttons {
@@ -570,11 +587,11 @@ body {
   }
 
   .music-card {
-    padding: 25px;
+    padding: 20px;
   }
 
   .youtube-container iframe {
-    height: 200px;
+    height: 180px;
   }
 
   /* Footer responsivo */
@@ -602,29 +619,35 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 15px;
+    padding: 8px;
   }
 
   .header {
-    padding: 20px 0;
+    padding: 12px 0;
   }
 
   .header h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
+  }
+
+  .timer-card {
+    padding: 15px 2px;
+  }
+
+  .timer-display {
+    margin-bottom: 20px;
+  }
+
+  .time-circle {
+    max-width: 140px;
   }
 
   .progress-ring-svg {
-    width: 150px;
-    height: 150px;
-  }
-
-  .progress-ring-background,
-  .progress-ring-circle {
-    r: 60;
+    max-width: 140px;
   }
 
   #timer-display {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 }
 
